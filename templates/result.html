@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js' integrity='sha512-fzff82+8pzHnwA1mQ0dzz9/E0B+ZRizq08yZfya66INZBz86qKTCt9MLU0NCNIgaMJCgeyhujhasnFUsYMsi0Q==' crossorigin='anonymous' referrerpolicy='no-referrer'></script>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>
+        Resumen
+    </title>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css'>
+ </head>
+ <body>
+    <section class='section'>
+
+        <div class='container'>
+         <div><a href="{{ url_for('get_texto') }}"><button class='button is-info'>Regresar</button></a></div>
+         <br><br>
+         <h1 class="title">Resumen:</h1>
+         <div class="notification is-success is-light">
+            {% with messages = get_flashed_messages() %}
+               {% if messages %}
+                  {% for message in messages%}
+                     {{ message }}
+                  {% endfor %}  
+               {% endif %}
+            {% endwith%}
+         </div>
+         <div class="box">{{ obtener_resultado }}</div>
+         <div><a href="{{ url_for('get_texto') }}"><button class='button is-info'>Regresar</button></a></div>
+
+         
+
+       </div>
+    </section>
+ </body>
+</html>
